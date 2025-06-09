@@ -1,0 +1,14 @@
+@import "./variables.css";
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: var(--main-background-color);
+  padding: 24px;
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 20px;
+}
