@@ -1,0 +1,42 @@
+@use './typography' as *
+@use './variables' as *
+
+body 
+  margin: 0
+  font-family: sans-serif
+  background-color: $main-background-color
+  padding: $main-padding
+  color: $card-button-text-color
+  display: flex
+  flex-direction: column
+  align-items: center
+
+h1
+  @include h1-desktop
+  text-align: center
+  @media (max-width: 1190px)
+    @include h1-tablet
+    margin: 10px
+    @media (max-width: 600px)
+    @include h1-mobile
+    margin: 8px
+
+h2
+  @include h2-desktop
+  text-align: center
+  @media (max-width: 1190px)
+    @include h2-tablet
+    margin: 10px
+    @media (max-width: 600px)
+    @include h2-mobile
+    margin: 8px
+
+p
+  @include p-desktop
+  @media (max-width: 1190px)
+    @include p-tablet
+    margin: 10px
+  @media (max-width: 600px)
+    @include p-mobile
+    margin: 8px
+    

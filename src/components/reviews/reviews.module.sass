@@ -1,0 +1,39 @@
+@use '@/styles/typography' as *
+@use '@/styles/variables' as vars
+
+.reviewContainer 
+  display: flex
+  align-items: flex-start
+  flex-wrap: wrap
+  height: 100%
+  gap: vars.$inner-gap
+  width: 100%
+  justify-content: center
+  padding: vars.$main-padding 0
+
+
+
+
+.reviewItem
+    display: flex
+    background-color: vars.$card-background-color
+    color: vars.$text-color
+    flex-direction: column
+    align-self: stretch
+    width: 25%
+    min-width: 200px
+    height: auto
+    padding: vars.$main-padding
+    border-radius: vars.$main-border-radius
+    @media (max-width: 1190px)
+      padding: 10px 
+      width: 20%
+    @media (max-width: 600px)
+      padding: 20px 
+      width: 60%
+
+
+
+
+
+        

@@ -1,0 +1,66 @@
+@use '@/styles/typography' as *
+@use '@/styles/variables' as vars
+.orderForm
+    display: flex
+    flex-direction: column
+    gap: vars.$inner-gap
+    background-color: vars.$card-background-color
+    border-radius: vars.$main-border-radius
+    color: vars.$text-color
+    width: 500px
+    padding: vars.$inner-padding
+    @media (max-width: 1190px)
+        width: 400px
+    @media (max-width: 600px)
+        width: 300px
+    h2
+        text-align: center
+
+    .itemList
+        display: flex
+        flex-direction: column
+        justify-content: flex-start
+        gap: vars.$inner-gap
+        font-size: 12px
+        padding: 0
+        width: 100%
+        .item
+            display: flex
+            flex-wrap: wrap
+            gap: vars.$inner-gap
+            font-size: 14px
+
+
+.buttonInputContainer
+    display: flex
+    flex-wrap:  wrap
+    gap: vars.$inner-gap
+    
+    justify-content: center
+
+.phoneLabel
+    display: flex
+    flex-direction: column
+   
+.phoneInput
+    background-color: vars.$card-button-background-color
+    color: vars.$card-button-text-color
+    font-size: 20px
+    text-align: center
+    padding: 12px vars.$inner-padding
+    text-transform: uppercase
+    border-radius: vars.$main-border-radius
+    cursor: pointer
+   
+
+    &::placeholder
+        color: vars.$input-placeholder-color
+
+.error
+    border-color: red
+
+.errorText
+    color: vars.$error-color
+    font-size: 12px
+    padding: 5px 10px
+

@@ -1,0 +1,14 @@
+@use '@/styles/typography' as *
+@use '@/styles/variables' as vars
+
+.baseButton
+    background-color: vars.$card-button-background-color
+    color: vars.$card-button-text-color
+    @include button-text-desktop
+    text-align: center
+    padding: 12px vars.$main-padding
+    text-transform: uppercase
+    border-radius: vars.$main-border-radius
+    cursor: pointer
+    @media (max-width: 1190px)
+        @include button-text-tablet

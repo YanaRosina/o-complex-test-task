@@ -1,5 +1,7 @@
-import "../styles/global.css";
+import "../styles/global.sass";
 import { inter } from "@/font/font";
+import { ModalProvider } from "@/components/ui/modal/modalContext";
+import { AutoCloseModal } from "@/components/ui/modal/modal";
 
 export const metadata = {
   title: "Тестовое задание",
@@ -12,7 +14,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru" className={inter.variable}>
-      <body>{children}</body>
+      <body>
+        {" "}
+        <ModalProvider>
+          <AutoCloseModal />
+          {children}
+        </ModalProvider>
+      </body>
     </html>
   );
 }

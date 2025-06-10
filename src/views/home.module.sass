@@ -1,11 +1,33 @@
-@import '@/styles/typography.sass'
+@use '@/styles/variables' as vars
+@use '@/styles/typography' as *
+
 .header 
-    background-color: var(--header-background-color)
+    background-color: vars.$header-background-color
     text-transform: uppercase
-    color: var(--header-text-color)
-    border-radius: var(--main-border-radius)
+    color: vars.$header-text-color
+    border-radius: vars.$main-border-radius
     height: 132px
+    @include header-desktop
     display: flex
     align-items: center  
     justify-content: center
-    @include header-desktop
+    max-width: 1190px
+    padding: 0 vars.$main-padding
+    @media (max-width: 1190px)
+        @include header-tablet
+    @media (max-width: 600px)
+        @include header-mobile
+
+.main
+    display: flex
+    flex-direction: column
+    align-items: center
+    gap: vars.$main-gap
+    justify-content: center
+    padding: vars.$main-padding
+    @media (max-width: 600px)
+        gap: vars.$inner-gap
+
+.orderBlock
+    display: flex
+    justify-content: center
