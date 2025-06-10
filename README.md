@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Тестовое задание на позицию React Developer (Next.js) для компании o-complex
+Выполнила: Яна Росина
 
-## Getting Started
+## Реализованный функционал: 
+- Адаптивное  одностраничное веб-приложение ( 1190px и > - десктоп, 1190px - 600px - планшеты, 600px и < - мобильные устройства)
 
-First, run the development server:
+- Раздел с отзывами ( GET http://o-complex.com:1337/reviews)  html обернутый в json.
+  Пофикшены уязвимости чтения html из ответа сервера: использована библиотека DOMPurify и инастроен next.config.ts
+- Раздел с товарами (GET http://o-complex.com:1337/products?page=1&page_size=20).
+Подгружается по 4 товара при скроле. При клике на кнопку "Купить" появляется возможность выбрать колличество товаров. Товары добавляются в раздел "Добавленные товары", данные о выбранных товарах сохраняются и после перезагрузки страницы, сохранение происходит в LocalStorage через кастомный хук useCardPersistence.ts. Помимо этого использован стейт-менеджер Redux
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Раздел "Добавленные товары" - отображается только если есть добавленные товары, в ином случае - не отображается совсем. Этот раздел представляет собой форму, где есть список добавленных товаров, их количество и стоимость (На примере названия товара продемонстрированна возможность обрезки названий длиннее 23 символов).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  Также эта форма содержит инпуд для ввода номера телефона (с валидацией и доп символами для упрощения читаемости номера при вводе - этот функционал реализован в утилите phoneValidation.ts) и кнопку "Заказать". Если номер телефона введен корректно, то происходит отправка формы при клике на эту кнопку. Если номер телефона заполнен не корректно - появляется ошибка и форма не отправляется. Отправить форму без добавленных товаров не получится, так как если ни один товар не добавлен - этот компонент скрыт.
+- После отправки формы заказа появляется автоматическое модальное окно, после этого происходит сброс всех добаленных товаров и номера телефона. 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+-------------------------------------------------------
 
-## Learn More
+## Что можно улучшить?:
+1) Дизайн данной станицы. Я старалась следовать данному дизайну из фигмы (https://www.figma.com/file/XIYVl8ICFkdl3HJZcc8o8B/тестовое?type=design&node-id=0%3A1&mode=design&t=6xUI2e3VtlUzDocD-1), добавляя некоторые моменты вроде дополнительных цветов и отступов. Но на данный момент дизайн можно значительно улучшить разработав единый макет со стилями, цветами и возможно добавить пагинацию.
 
-To learn more about Next.js, take a look at the following resources:
+2) Добавить прелоудеры для товаров, но это не критично, сейчас товары загружаются достаточно быстро
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3) Поработать над структурой компонентов и большей адстракцией. Например я вынесла компонент button в components/ui, но не сделала подобного для input с номером телефона (так как этот элемент используется только в одном компоненте). Но при масштабировании следует выделять подобные ui компоненты в отдельные кастомные компоненты.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4) Можно добавить больше переменных для различных устойчивых параметрах дизайна - я сделала файлы variables.sass и typography.sass с переменными и миксинами для текстовых элементов соответственно как пример.
 
-## Deploy on Vercel
+5) При увеличении количества страниц имеет смысл пересмотреть стрктуру код на страницах app/page.tsx и views/home.tsx
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+-------------------------------------------------------
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Как развернуть проект?:
+1) Склонируйте данный репозиторий на локальную машину git clone https://github.com](https://github.com/YanaRosina/o-complex-test-task.git
+
+2) Перейдите в папку проекта cd o-complex-test-task
+
+3) Установите зависимости
+   npm install  или yarn install
+
+4) Запустите проект npm run dev или yarn dev
+
+5) Проект скорее всего будет доступен по http://localhost:3000
+
+-------------------------------------------------------
+
+## Как со мной связаться?:
+    Email: rosinayana8@gmail.com
+    Telegram: @F_ilavandrel
+    Мое резюме на hh: https://maikop.hh.ru/resume/3aaaf265ff095e4e940039ed1f5570446e4630
