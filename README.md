@@ -31,7 +31,7 @@
 -------------------------------------------------------
 
 ## Как развернуть проект?:
-1) Склонируйте данный репозиторий на локальную машину git clone https://github.com](https://github.com/YanaRosina/o-complex-test-task.git
+1) Склонируйте данный репозиторий на локальную машину git clone https://github.com/YanaRosina/o-complex-test-task.git
 
 2) Перейдите в папку проекта cd o-complex-test-task
 
